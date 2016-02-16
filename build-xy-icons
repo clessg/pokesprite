@@ -1,0 +1,35 @@
+#!/bin/bash
+
+command -v mogrify >/dev/null 2>&1 || { echo "Requires imagemagick to be installed" >&2; exit 1; }
+command -v optipng >/dev/null 2>&1 || { echo "Requires optipng to be installed" >&2; exit 1; }
+
+rimraf build/poke-icons
+rimraf build/poke-icons-shiny
+
+mkdir build/poke-icons
+mkdir build/poke-icons-shiny
+
+GREEN='\033[92m'
+GREEN_BOLD='\033[92m\033[1m'
+NC='\033[0m'
+
+echo "Adding icons to build/poke-icons and build/poke-icons-shiny..."
+node src/add-poke-icons.js icons/pokemon/regular build/poke-icons
+node src/add-poke-icons.js icons/pokemon/shiny build/poke-icons-shiny
+node src/add-custom-icons.js icons/pokemon/custom build/poke-icons
+node src/add-custom-icons.js icons/pokemon/custom-shiny build/poke-icons-shiny
+echo -e "${GREEN}Icons moved${NC}"
+
+echo -e "\nTrimming icons..."
+mogrify -trim build/poke-icons/*.png
+mogrify -trim build/poke-icons-shiny/*.png
+echo -e "${GREEN}Icons trimmed${NC}"
+
+echo -e "\nOptimizing icons..."
+for i in build/poke-icons/*.png; do optipng -quiet -preserve "$i"; done
+for i in build/poke-icons-shiny/*.png; do optipng -quiet -preserve "$i"; done
+echo -e "${GREEN}Icons optimized${NC}"
+
+echo -e "\n${GREEN_BOLD}Done!${NC}"
+
+# vim: set syntax=sh filetype=sh :
