@@ -35,3 +35,6 @@ ehthumbs.db
 
 # Font Studio backup files
 *.vfbak
+
+# Node
+node_modules
