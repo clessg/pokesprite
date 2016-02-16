@@ -7,6 +7,8 @@ This simple script generates a *complete image sprite* of all Pokémon in the Na
   <img src="https://raw.github.com/msikma/pokesprite/master/resources/wiki/pokesprite-banner.png" alt="PokéSprite icon example" />
 </p>
 
+You can find the numbered icons in `build/poke-icons` and `build/poke-icons-shiny`.
+
 Raison d'être
 -------------
 
