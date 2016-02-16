@@ -1,0 +1,20 @@
+{
+  "name": "pokesprite",
+  "version": "1.0.0",
+  "description": "PokéSprite – Image Sprite Generator ===================================",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clessg/pokesprite.git"
+  },
+  "keywords": [],
+  "author": "Chris Gaudreau <chris@crystala.net> (https://github.com/clessg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clessg/pokesprite/issues"
+  },
+  "homepage": "https://github.com/clessg/pokesprite#readme"
+}
